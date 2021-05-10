@@ -4,33 +4,34 @@ import is_mutant
 
 
 class DnaValidationTest(unittest.TestCase):
-    def should_identify_horizontal_sequences_and_mark_as_mutant_if_find_more_than_one(self):
-        dna_with_two_horizontal_sequences = {"ATAAAA",
+
+    def test_identify_horizontal_sequences(self):
+        dna_with_two_horizontal_sequences = ["ATAAAA",
                                              "CTGTGC",
                                              "TTGTGT",
                                              "AGAAGG",
                                              "CCCCTA",
-                                             "TCACTG"}
+                                             "TCACTG"]
         dna_is_mutant = is_mutant.is_mutant_dna(dna_with_two_horizontal_sequences)
         self.assertEqual(dna_is_mutant, True)
 
-    def should_identify_vertical_sequences_and_mark_as_mutant_if_find_more_than_one(self):
-        dna_with_two_vertical_sequences = {"ATAAAG",
+    def test_identify_vertical_sequences(self):
+        dna_with_two_vertical_sequences = ["ATAAAG",
                                            "CTGTCG",
                                            "ATAGAG",
                                            "ATATGG",
                                            "CACATA",
-                                           "TCACTG"}
+                                           "TCACTG"]
         dna_is_mutant = is_mutant.is_mutant_dna(dna_with_two_vertical_sequences)
         self.assertEqual(dna_is_mutant, True)
 
-    def should_identify_inverse_diagonal_sequences_and_mark_as_mutant_if_find_more_than_one(self):
-        dna_with_two_inverse_diagonal_sequences = {"ACATAG",
+    def test_identify_inverse_diagonal_sequences(self):
+        dna_with_two_inverse_diagonal_sequences = ["ACATAG",
                                                    "CTGAGA",
                                                    "ATAGAA",
                                                    "ATGTAG",
                                                    "CACATA",
-                                                   "TCACTG"}
+                                                   "TCACTG"]
         dna_is_mutant = is_mutant.is_mutant_dna(dna_with_two_inverse_diagonal_sequences)
         self.assertEqual(dna_is_mutant, True)
 
