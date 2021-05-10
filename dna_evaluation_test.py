@@ -24,6 +24,16 @@ class DnaValidationTest(unittest.TestCase):
         dna_is_mutant = is_mutant.is_mutant_dna(dna_with_two_vertical_sequences)
         self.assertEqual(dna_is_mutant, True)
 
+    def should_identify_inverse_diagonal_sequences_and_mark_as_mutant_if_find_more_than_one(self):
+        dna_with_two_inverse_diagonal_sequences = {"ACATAG",
+                                                   "CTGAGA",
+                                                   "ATAGAA",
+                                                   "ATGTAG",
+                                                   "CACATA",
+                                                   "TCACTG"}
+        dna_is_mutant = is_mutant.is_mutant_dna(dna_with_two_inverse_diagonal_sequences)
+        self.assertEqual(dna_is_mutant, True)
+
 
 if __name__ == '__main__':
     unittest.main()
