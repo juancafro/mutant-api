@@ -35,6 +35,15 @@ def is_mutant_dna(dna_sequence):
                 if repeated_consecutive_gene_counter >= 3:
                     mutant_genes_counter += 1
             repeated_consecutive_gene_counter = 0
+            for increment in range(1, 4, 1):
+                if i + increment >= rows or j + increment >= columns:
+                    break
+                if gene_pivot != dna_sequence[i + increment][j + increment]:
+                    break
+                repeated_consecutive_gene_counter = repeated_consecutive_gene_counter + 1
+                if repeated_consecutive_gene_counter >= 3:
+                    mutant_genes_counter += 1
+            repeated_consecutive_gene_counter = 0
             if mutant_genes_counter > 1:
                 is_mutant = True
                 break
